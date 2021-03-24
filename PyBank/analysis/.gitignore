@@ -1,0 +1,4 @@
+# ignore directory
+* 
+# upload .gitignore to repo
+!.gitignore
