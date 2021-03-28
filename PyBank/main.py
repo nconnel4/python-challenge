@@ -44,4 +44,5 @@ def __main__():
     net_profit, total_change = get_profit_values(bank_data)
     print(total_months, net_profit, total_change)
 
-__main__()
+if __name__ == '__main__'
+    __main__()
