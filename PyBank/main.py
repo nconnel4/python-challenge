@@ -37,9 +37,11 @@ def __main__():
     # import csv file to dictionary list
     bank_data = csvreader.read_csv_to_list(csv_path)
 
+    # get total_months
+    total_months = len(bank_data)
+
     #calculate the net profits
     net_profit, total_change = get_profit_values(bank_data)
-    print(net_profit, total_change)
-
+    print(total_months, net_profit, total_change)
 
 __main__()
