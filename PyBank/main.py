@@ -49,6 +49,20 @@ def get_profit_change(previous_month, current_month):
 
     return current_month - previous_month
 
+def format_output_string(total_months, net_profit, avg_change, greatest_increase, greatest_decrease):
+    output_string = (
+        f'Financial Analysis \n'
+        f'---------------------------- \n'
+        f'Total Months: {total_months} \n'
+        f'Total: {net_profit} \n'
+        f'Average Change: ${avg_change:.2f} \n'
+        f'Greatest Increase in Profits: {greatest_increase["date"]} (${greatest_increase["profit_change"]}) \n'
+        f'Greatest Decrease in Profits: {greatest_decrease["date"]} (${greatest_decrease["profit_change"]}) \n'
+    )
+
+    return output_string
+
+
 def __main__():
     # import csv file to dictionary list
     bank_data = csvreader.read_csv_to_list(csv_path)
@@ -56,9 +70,16 @@ def __main__():
     # get total_months
     total_months = len(bank_data)
 
-    #calculate the net profits
+    # calculate the net profits, total_change, greatest increase, greatest descrease
     net_profit, total_change, greatest_increase, greatest_decrease = get_profit_values(bank_data)
-    print(total_months, net_profit, total_change, greatest_increase, greatest_decrease)
+    avg_change = total_change / (total_months - 1)
+
+    output = format_output_string(total_months, net_profit, avg_change, greatest_increase, greatest_increase)
+
+    # print output string to console
+    print(output)
+
+    
 
 if __name__ == '__main__':
     __main__()
