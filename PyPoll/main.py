@@ -28,11 +28,23 @@ def aggregate_election_data(data):
     return results
 
 
+def get_vote_total(data):
+    # returns total vote count
+
+    return len(data)
+
+
 
 def main():
+
     # read election data from file
     election_data = csvreader.read_csv_to_list(csv_path)
+    
+    # aggregaet election results
     election_aggregate = aggregate_election_data(election_data)
+
+    # count the total number of votes
+    vote_total = get_vote_total(election_data)
 
 
 if __name__ == '__main__':
