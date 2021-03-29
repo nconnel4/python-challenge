@@ -110,9 +110,11 @@ def main():
     # get results string
     results_string = format_results_string(vote_total, election_aggregate, vote_percentage, winner_name)
 
-    # print results_string to file
+    # print results_string to console
     print(results_string)
 
+    # write results_string to file
+    filewriter.write_file(out_path, results_string)
 
 
 if __name__ == '__main__':
