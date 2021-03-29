@@ -47,6 +47,23 @@ def calculate_vote_percentage(aggregate_data, total_votes):
     
     return results
 
+def get_winner(aggregate_data):
+    # returns name of winner of popular vote
+
+    winner = {'name': '',
+                'votes': 0} 
+
+    # loop through vote totals for each candidate
+    for candidate, votes in aggregate_data.items():
+
+        # replace winner if vote total is higher
+        if votes > winner['votes']:
+            winner['name'] = candidate
+            winner['votes'] = votes
+
+    return winner['name']
+
+
 
 def main():
 
@@ -61,6 +78,9 @@ def main():
 
     # calculate the percentage of votes each candidate received
     vote_percentage = calculate_vote_percentage(election_aggregate, vote_total)
+
+    # calculate winner
+    winner_name = get_winner(election_aggregate)
 
 
 
