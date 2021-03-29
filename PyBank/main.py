@@ -1,10 +1,12 @@
 from pathlib import Path
-from Utility import csvreader
+from Utility import csvreader, filewriter
 
 # get path of current folder
 script_path = Path(__file__).parent
 # get path to csv file
 csv_path = script_path.joinpath('resources/budget_data.csv')
+# set output file path
+out_path = script_path.joinpath('analysis/budget_data_output.txt')
 
 def get_profit_values(data):
     # loops through data and gets the net profit and change in profit
@@ -78,7 +80,7 @@ def __main__():
 
     # print output string to console
     print(output)
-
+    filewriter.write_file(out_path, output)
     
 
 if __name__ == '__main__':
